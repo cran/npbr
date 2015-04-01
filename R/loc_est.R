@@ -1,6 +1,6 @@
- loc_est<-function(xtab,ytab,x,h)
+ loc_est<-function(xtab, ytab, x, h, method="u")
  {
-   stopifnot(length(xtab)==length(ytab))
+   stopifnot(length(xtab)==length(ytab), method%in%c("u","m"))
       
    fitt<-rep(0,length(x))
 
@@ -22,8 +22,13 @@
      rhs<-yloc
      dir <- c(rep(">=",length(xloc)))
 
-     bounds <- list(lower = list(ind = 1:2, val = c(-Inf,0)),upper=list(ind = 1:2, val = c(Inf,Inf)))
-     Sol<-Rglpk_solve_LP(obj,mat,dir,rhs,bounds,types=NULL,max=FALSE)
+     if(method=="u")
+     {bounds <- list(lower = list(ind = 1:2, val = c(-Inf,-Inf)),upper=list(ind = 1:2, val = c(Inf,Inf)))
+     }
+     else
+     {bounds <- list(lower = list(ind = 1:2, val = c(-Inf,0)),upper=list(ind = 1:2, val = c(Inf,Inf)))
+     }     
+     Sol<-Rglpk_solve_LP(obj, mat, dir, rhs, bounds,types=NULL,max=FALSE)
      OPT<-Sol$sol
 
      fitt[i]<-OPT[1]

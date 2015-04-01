@@ -1,2 +1,3 @@
-import(splines, graphics, Rglpk, Benchmarking)
+import(splines, quadprog, graphics, Rglpk, Benchmarking)
+importFrom(np, npregbw)
 exportPattern("^[[:alpha:]]+")

@@ -1,4 +1,4 @@
- loc_est_bw<-function(xtab, ytab, x, hini, B=5)
+ loc_est_bw<-function(xtab, ytab, x, hini, B=5, method="u")
  {
  
    stopifnot(length(xtab)==length(ytab))
@@ -10,7 +10,7 @@
 
    BIterN<-B # number of bootstrap iteration
 
-   ghat<-loc_est(xtab,ytab,x,hini) # a pilot estimator
+   ghat<-loc_est(xtab,ytab,x,hini, method=method) # a pilot estimator
    gpil<-length(ghat) # a second pilot estimator
    h1<-1.5*hini
 
@@ -120,7 +120,7 @@
 
    for (hi in min(which(h_loc_range>=h_chk_min)):length(h_loc_range))
    {
-     MSE[hi]<-MSE[hi]+mean((loc_est(bxtab_r,bytab_r,xb,h_loc_range[hi])-gpilb)^2)
+     MSE[hi]<-MSE[hi]+mean((loc_est(bxtab_r,bytab_r,xb,h_loc_range[hi],method=method)-gpilb)^2)
    }
 
    }
