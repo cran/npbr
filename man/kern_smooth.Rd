@@ -55,6 +55,7 @@ Hohsuk Noh
 }
 
 \examples{
+\dontrun{
 data("green")
 x.green <- seq(min(log(green$COST)), max(log(green$COST)), length.out=101)
 options(np.tree=TRUE,crs.messages=FALSE,np.messages=FALSE)
@@ -87,7 +88,8 @@ lines(x.green, y.ks.green.m, lty=2, lwd=4, col="cyan")
 lines(x.green, y.ks.green.mc, lty=3, lwd=4, col="magenta")   
 legend("topleft", col=c("green","cyan","magenta"), 
 lty=c(1,2,3), legend=c("unconstrained", "monotone", 
- "monotone + concave"), lwd=4, cex=0.8)     
+ "monotone + concave"), lwd=4, cex=0.8)
+}    
 }
 
 

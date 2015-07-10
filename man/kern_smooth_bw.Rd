@@ -49,6 +49,7 @@ Parmeter, C.F. and Racine, J.S. (2013). Smooth constrained frontier analysis in 
 }
 
 \examples{
+\dontrun{
 data("green")
 x.green <- seq(min(log(green$COST)), max(log(green$COST)),length.out=101)
 options(np.tree=TRUE,crs.messages=FALSE,np.messages=FALSE)
@@ -65,5 +66,6 @@ lines(x.green, y.pr.green.m, lwd=4, lty=3, col="red")
 lines(x.green, y.noh.green.m, lwd=4, lty=3, col="blue")  
 legend("topleft", col=c("blue","red"),lty=3, legend=c("noh","pr"), 
  lwd=4, cex=0.8)
+} 
 }
 \keyword{optimize}

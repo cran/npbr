@@ -1,3 +1,7 @@
-import(splines, quadprog, graphics, Rglpk, Benchmarking)
+import(graphics, stats, utils)
 importFrom(np, npregbw)
+importFrom(Benchmarking, dea)
+importFrom(quadprog, solve.QP)
+importFrom(Rglpk, Rglpk_solve_LP)
+importFrom(splines, spline.des)
 exportPattern("^[[:alpha:]]+")

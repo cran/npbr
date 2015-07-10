@@ -1,5 +1,5 @@
-e06549c838cfe3147696772c7d1ea2d9 *DESCRIPTION
-f3705ddc2a9443e43bdd21d821229ec3 *NAMESPACE
+f15e5cc4f5c2a232b1155a0f9a429031 *DESCRIPTION
+cab6b069db46d316b07a7c7d1bcc6107 *NAMESPACE
 87bacf92b585f3b473b6024395f48e5e *R/cub_spline_est.r
 01c46b23d1e8baa9f209d689d1bbb84f *R/cub_spline_kn.r
 f589c96eb8cec4b4feaa49128a6cafcc *R/dea_est.R
@@ -38,8 +38,8 @@ dadcbc565074cd7b1fa5a4c8680cccb4 *man/dea_est.Rd
 ef062067c6583664407207ee893362bd *man/dfs_pick.rd
 f22bcdb20a4ed94dd318fd93c7e37fa7 *man/dfs_pwm.rd
 217953db904a769413c9f8e10ef1b99c *man/green.Rd
-59c855d5504df2c3c0c344dcb8660cb6 *man/kern_smooth.Rd
-d5141ea673b18357f3af5ef2c744e243 *man/kern_smooth_bw.Rd
+f8a446becf760149fddbf2f9b393964e *man/kern_smooth.Rd
+b68db07249377cee6f229f441a326641 *man/kern_smooth_bw.Rd
 b26abfeb92fcc59a729a45f0e2b46ebd *man/kopt_momt_pick.rd
 8291277ee1ded731fa7b73cf299fd241 *man/loc_est.Rd
 51567bfa62b2b9283ff690fc85b3b486 *man/loc_est_bw.Rd
@@ -51,7 +51,7 @@ b26abfeb92fcc59a729a45f0e2b46ebd *man/kopt_momt_pick.rd
 f50e0187156d6c8dd0f42e13f686f2fc *man/poly_degree.rd
 8b94378d3673125abcec22c3da7c1d9b *man/poly_est.Rd
 da3d47d7dbe6df78f9d2a7232c9b63b4 *man/post.Rd
-c98f291c96b06d4520c34788939ee632 *man/quad_spline_est.Rd
+a1c24c73d4763f370d0729d61f0c22d4 *man/quad_spline_est.Rd
 3af90f5d60ceac2718ebf5fe28c4c327 *man/quad_spline_kn.Rd
 b0c09d775b7f97de90b3ad46f68fa95c *man/records.Rd
 b6eaf1de38ab704e4456d15df4dd9953 *man/rho_momt_pick.rd

@@ -74,6 +74,7 @@ Hohsuk Noh.
 \code{\link{quad_spline_kn}}
 }
 \examples{
+\dontrun{
 data("green")
 x.green <- seq(min(log(green$COST)), max(log(green$COST)), length.out=101)
 # 1. Unconstrained quadratic spline fits
@@ -109,7 +110,8 @@ lines(x.green, y.quad.green.mc, lwd=4, lty=3, col="magenta")
 points(log(OUTPUT)~log(COST), data=green)
 legend("topleft", col=c("green","cyan","magenta"), 
 lty=c(1,2,3), legend=c("unconstrained", "monotone", 
- "monotone + concave"), lwd=4, cex=0.8)    
+ "monotone + concave"), lwd=4, cex=0.8) 
+}   
 }
 \keyword{nonparametric}
 \keyword{optimize}
