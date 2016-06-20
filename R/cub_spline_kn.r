@@ -1,4 +1,4 @@
-cub_spline_kn<-function(xtab,ytab, method,krange=1:20,type="AIC")
+cub_spline_kn<-function(xtab, ytab, method, krange=1:20, type="AIC")
  {
   stopifnot(type %in% c("AIC","BIC"),length(xtab)==length(ytab), method%in%c("u","m","mc"), is.integer(krange))
        

@@ -109,7 +109,7 @@
       bounds <- list(lower = list(ind = 1:length(opt_coef), val = rep(-Inf,length(opt_coef))),upper=list(ind = 1:length(opt_coef), val = rep(Inf,length(opt_coef))))
       Sol<-Rglpk_solve_LP(opt_coef, mat, dir, rhs, bounds,types=NULL,max=FALSE)
       
-      OPT<-Sol$sol
+      OPT<-Sol$solution
 
       xgrid <- x
       der <- rep(0,length(xgrid))

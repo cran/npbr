@@ -24,7 +24,7 @@
    bounds <- list(lower = list(ind = 1:(deg+1), val = rep(-Inf,deg+1)),upper=list(ind = 1:(deg+1), val = rep(Inf,deg+1)))
 
    Sol<-Rglpk_solve_LP(obj, mat, dir, rhs,bounds,types=NULL,max=FALSE)
-   OPT<-Sol$sol
+   OPT<-Sol$solution
 
 
    gridM<-c()

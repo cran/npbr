@@ -29,7 +29,7 @@
      {bounds <- list(lower = list(ind = 1:2, val = c(-Inf,0)),upper=list(ind = 1:2, val = c(Inf,Inf)))
      }     
      Sol<-Rglpk_solve_LP(obj, mat, dir, rhs, bounds,types=NULL,max=FALSE)
-     OPT<-Sol$sol
+     OPT<-Sol$solution
 
      fitt[i]<-OPT[1]
      }

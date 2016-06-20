@@ -54,12 +54,12 @@
   
      x_cal <- seq(l_end,r_end, length.out=5001)
      der <- rep(0,length(x_cal))
-     bb <- spline.des(knots, ord =spl_ord, derivs=der, x=x_cal, outer.ok = TRUE)
+     bb <- splines::spline.des(knots, ord =spl_ord, derivs=der, x=x_cal, outer.ok = TRUE)
 
      opt_coef<-apply(bb$design,2,sum)/(length(x_cal)-1)
 
      # design and constraint matrix
-     desM<- spline.des(knots, ord =spl_ord, x=xtab, outer.ok = TRUE)$design
+     desM <- splines::spline.des(knots, ord =spl_ord, x=xtab, outer.ok = TRUE)$design
      nbasis<-kn+spl_ord
      monoC<-cbind(-diag(nbasis-1),0)+cbind(0,diag(nbasis-1))
   
@@ -82,7 +82,7 @@
       # concavity constraint
       nknots<-knots[c(spl_ord:(length(knots)-(spl_ord-1)))]
       der_n<-rep(2,length(nknots))
-      convC<- spline.des(knots, ord =spl_ord, derivs=der_n, x=nknots, outer.ok = TRUE)$design
+      convC <- spline.des(knots, ord =spl_ord, derivs=der_n, x=nknots, outer.ok = TRUE)$design
   
       # formulation of linear programming
       mat<-rbind(desM,monoC,convC)
@@ -92,9 +92,9 @@
      }
           
       bounds <- list(lower = list(ind = 1:length(opt_coef), val = rep(-Inf,length(opt_coef))),upper=list(ind = 1:length(opt_coef), val = rep(Inf,length(opt_coef))))
-      Sol<-Rglpk_solve_LP(opt_coef, mat, dir, rhs, bounds,types=NULL,max=FALSE)
+      Sol <- Rglpk_solve_LP(opt_coef, mat, dir, rhs, bounds,types=NULL,max=FALSE)
       
-      OPT<-Sol$sol
+      OPT <- Sol$solution
 
       xgrid <- x
       der <- rep(0,length(xgrid))
