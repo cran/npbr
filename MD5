@@ -1,4 +1,4 @@
-1dc11c4c9db29e47a83906ca65473926 *DESCRIPTION
+e5920a8abd4ea27e97942fae35eb22a5 *DESCRIPTION
 cab6b069db46d316b07a7c7d1bcc6107 *NAMESPACE
 d290bee31e9a5d0a720c7bed6266d3c8 *R/cub_spline_est.r
 e01f07f21e4653b6b0bbb749e3a69af5 *R/cub_spline_kn.r
@@ -6,7 +6,7 @@ f589c96eb8cec4b4feaa49128a6cafcc *R/dea_est.R
 d3e8ed11a448346cfee96fea5831d2fa *R/dfs_momt.r
 54a82a8e5d6f9a7957e8316102c3d055 *R/dfs_pick.r
 1101b375320b77ef9fbf39cd9d212de3 *R/dfs_pwm.r
-cd697be0dd67b293f9598bbd0d29db04 *R/kern_smooth.R
+0a8666d15c2b4278127679d779e63784 *R/kern_smooth.R
 e7e7e5ed884d874a87998d6d3a25e3b3 *R/kern_smooth_bw.R
 343b9a12a2071cecccf79d1597ec55c6 *R/kopt_momt_pick.r
 a4d2efb5a63070f3c217303bfac9cfc2 *R/loc_est.R
@@ -29,7 +29,7 @@ d0c91f819b2be78e25f4b342e4ad9a9f *data/nuclear.rda
 4a311b38a57fb486a9c5564441518279 *data/records.rda
 c91ae108c1d03cf090080cd00f0ee5c1 *inst/CITATION
 47876f4456160a99e8047078f8580fd6 *inst/doc/ex-npbr.R
-2b885af988acc9960c2b94e7e02a66d6 *inst/doc/ex-npbr.pdf
+9250df11988295d70f16864165cc6b8c *inst/doc/ex-npbr.pdf
 1e9cc10604bfc660b93012f9cd688fd4 *inst/doc/ex-npbr.rnw
 c1038bf6c7df62ce3cf7a16eccb64fea *man/air.rd
 7aad3b6bfaa33f18373b15e4c75cd460 *man/cub_spline_est.rd

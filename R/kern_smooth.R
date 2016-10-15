@@ -65,7 +65,7 @@ kern_smooth<-function(xtab, ytab, x, h, method="u", technique="noh")
   }
     
   Sol<-Rglpk_solve_LP(obj, mat, dir, rhs, types=NULL, max=FALSE)
-  OPT_temp<-Sol$sol
+  OPT_temp<-Sol$solution
   # p+ and p-
   OPT<-OPT_temp[1:length(opt_coef)]-OPT_temp[(length(opt_coef)+1):(length(opt_coef)*2)]
   
