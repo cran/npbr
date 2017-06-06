@@ -7,7 +7,8 @@ Bandwidth selection for the local linear frontier estimator
 Computes the optimal bootstrap bandwidth proposed by Hall and Park (2004) for the local linear frontier estimator. 
 }
 \usage{
-loc_est_bw(xtab, ytab, x, hini, B = 5, method="u")
+loc_est_bw(xtab, ytab, x, hini, B = 5, method = "u", 
+ fix.seed = FALSE, control = list("tm_limit" = 700))
 }
 
 \arguments{
@@ -17,6 +18,8 @@ loc_est_bw(xtab, ytab, x, hini, B = 5, method="u")
   \item{hini}{the initial bandwidth at which the local linear estimate will be computed.}
   \item{B}{number of bootstrap replications.}
   \item{method}{a character equal to "u" (unconstrained estimator) or "m" (improved version of the unconstrained estimator).}   
+  \item{fix.seed}{a boolean equal to TRUE for fixing the seed (bootstrap sampling).} 
+  \item{control}{a list of parameters to the GLPK solver. See *Details* of help(Rglpk_solve_LP).}  
 }
 \details{
 For a detailed description of the bootstrap procedure, see Hall and Park (2004).
@@ -40,19 +43,19 @@ Hohsuk Noh.
 \dontrun{
 data("nuclear")
 x.nucl <- seq(min(nuclear$xtab), max(nuclear$xtab), 
- length.out=101) 
+ length.out = 101) 
 # 1. Unconstrained case 
 # Optimal bandwidths over 100 bootstrap replications
 system.time(
 h.nucl.u <- loc_est_bw(nuclear$xtab, nuclear$ytab, 
- x.nucl, hini=40, B=1, method="u")
+ x.nucl, hini = 40, B = 1, method = "u")
 )
 # result is 79.11877
 
 # 2. Monotonicity constraint
 # Optimal bandwidths over 100 bootstrap replications
 h.nucl.m <- loc_est_bw(nuclear$xtab, nuclear$ytab, 
- x.nucl, h=40, B=100, method="m") 
+ x.nucl, hini = 40, B = 100, method = "m") 
 # result is 79.12
 }
 }

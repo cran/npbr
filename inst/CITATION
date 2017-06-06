@@ -1,4 +1,4 @@
-citHeader("To cite GeoXp in publications use:")
+citHeader("To cite npbr in publications use:")
 
 citEntry(entry = "Article",
   title        = "{npbr}: A Package for Nonparametric Boundary Regression in {R}",
@@ -6,13 +6,13 @@ citEntry(entry = "Article",
                    as.person("Thibault Laurent"),
                    as.person("Hohsuk Noh")),
   journal      = "Journal of Statistical Software",
-  year         = "2016",
+  year         = "2017",
   url          = "http://www.jstatsoft.org/",
 
   textVersion  =
-  paste("Abdelaati Daouia, Thibault Laurent, Hohsuk Noh (2016).",
+  paste("Abdelaati Daouia, Thibault Laurent, Hohsuk Noh (2017).",
         "npbr: A Package for Nonparametric Boundary Regression in R.",
-        "Journal of Statistical Software, Accepted.",
+        "Journal of Statistical Software, Forthcoming.",
         "URL http://www.jstatsoft.org/")
 )
 

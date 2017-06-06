@@ -1,88 +1,90 @@
-kern_smooth_bw<-function(xtab, ytab, method="u", technique="noh", bw_method="bic")
-{
-  n<-length(xtab)
-  ndata<-length(xtab) # number of data points
+kern_smooth_bw <- function(xtab, ytab, method = "u", technique = "noh", bw_method = "bic", control = list("tm_limit" = 700)){
+  n <- length(xtab)
+  ndata <- length(xtab) # number of data points
 
   # sorting step to use the Priestly-Chao estimator
-  oind<-order(xtab)
-  xtab<-xtab[oind]
-  ytab<-ytab[oind]
+  oind <- order(xtab)
+  xtab <- xtab[oind]
+  ytab <- ytab[oind]
   
-  if (technique=="noh" && bw_method=="bic")
-  {
-    h_min<-2*max(diff(sort(xtab)))
-    h_max<-(max(xtab)-min(xtab))
-    h_grid<-seq(h_min,h_max,length=30)
+  if(technique=="noh" && bw_method=="bic"){
+    h_min <- 2*max(diff(sort(xtab)))
+    h_max <- (max(xtab)-min(xtab))
+    h_grid <- seq(h_min, h_max, length = 30)
     
-    BIC<-NULL
+    BIC <- NULL
     
-    for ( h in h_grid)
-    {
-      Phi<-kern_smooth(xtab,ytab,xtab,h,method,technique="noh")
+    for(h in h_grid){
+       Phi <- kern_smooth(xtab, ytab, xtab, h, method, technique = "noh", control = control)
       
       # calculating model complexity
-      xtab2<-xtab[-1]
-      ytab2<-ytab[-1]
-      DX<-diff(xtab)
+      xtab2 <- xtab[-1]
+      ytab2 <- ytab[-1]
+      DX <- diff(xtab)
       
-      A<-dnorm(outer(xtab,xtab2,'-')/h)/h
-      B<-rep(1,n) %*% t(ytab2*DX)
-      S<-A * rep(1,n) %*% t(DX)
-      SS<-S[-1,]
-      DF<-sum(diag(SS))
+      A <- dnorm(outer(xtab, xtab2, '-')/h)/h
+      B <- rep(1, n) %*% t(ytab2*DX)
+      S <- A * rep(1, n) %*% t(DX)
+      SS <- S[-1,]
+      DF <- sum(diag(SS))
       
-      BIC<-c(BIC,log(sum(abs(ytab-Phi)))+log(length(ytab))*DF/(2*length(ytab)))
+      BIC <- c(BIC, log(sum(abs(ytab-Phi)))+log(length(ytab))*DF/(2*length(ytab)))
     }
     
-    if (which.min(BIC)==1) {mind<-which.min(BIC[-1])+1}
-    if (which.min(BIC)>1) {mind<-which.min(BIC)}
-    hopt<- h_grid[mind]
+    if(which.min(BIC)==1)
+      mind <- which.min(BIC[-1])+1
+    
+    if(which.min(BIC)>1) 
+      mind <- which.min(BIC)
+    
+    hopt <- h_grid[mind]
   }
   
-  if (technique=="noh" && bw_method=="cv")
-  {
-    bw<-npregbw(xdat=xtab, ydat=ytab, regtype="lc", ckertype="gaussian")
-    hopt<-max(max(diff(sort(xtab))),bw$bw)
+  if (technique=="noh" && bw_method=="cv"){
+    bw <- npregbw(xdat = xtab, ydat = ytab, regtype = "lc", ckertype = "gaussian")
+    hopt <- max(max(diff(sort(xtab))), bw$bw)
+    hopt <- min(diff(range(xtab)), hopt)    
   }
   
   
-  if (technique=="pr" && bw_method=="bic")
-  {
-    h_min<-2*max(diff(sort(xtab)))
-    h_max<-(max(xtab)-min(xtab))
-    h_grid<-seq(h_min,h_max,length=30)
+  if (technique=="pr" && bw_method=="bic"){
+    h_min <- 2*max(diff(sort(xtab)))
+    h_max <- (max(xtab)-min(xtab))
+    h_grid <- seq(h_min, h_max, length = 30)
     
-    BIC<-NULL
+    BIC <- NULL
     
-    for ( h in h_grid)
-    {
-      Phi<-kern_smooth(xtab,ytab,xtab,h,method,technique="pr")
+    for(h in h_grid){
+      Phi <- kern_smooth(xtab, ytab, xtab, h, method, technique = "pr")
       
       # calculating model complexity
-      xtab2<-xtab[-1]
-      ytab2<-ytab[-1]
-      DX<-diff(xtab)
+      xtab2 <- xtab[-1]
+      ytab2 <- ytab[-1]
+      DX <- diff(xtab)
       
-      A<-dnorm(outer(xtab,xtab2,'-')/h)/h
-      B<-rep(1,n) %*% t(ytab2*DX)
-      S<-A * rep(1,n) %*% t(DX)
-      SS<-S[-1,]
-      DF<-sum(diag(SS))
+      A <- dnorm(outer(xtab, xtab2, '-')/h)/h
+      B <- rep(1, n) %*% t(ytab2*DX)
+      S <- A * rep(1, n) %*% t(DX)
+      SS <- S[-1,]
+      DF <- sum(diag(SS))
       
-      BIC<-c(BIC,log(sum(abs(ytab-Phi)))+log(length(ytab))*DF/(2*length(ytab)))
+      BIC <- c(BIC, log(sum(abs(ytab-Phi)))+log(length(ytab))*DF/(2*length(ytab)))
     }
-    if (which.min(BIC)==1) {mind<-which.min(BIC[-1])+1}
-    if (which.min(BIC)>1) {mind<-which.min(BIC)}
-    hopt<- h_grid[mind]
     
+    if(which.min(BIC)==1)
+      mind <- which.min(BIC[-1])+1
+    
+    if(which.min(BIC)>1) 
+      mind <- which.min(BIC)
+    
+    hopt <- h_grid[mind]
   }
   
-  if (technique=="pr" && bw_method=="cv")
-  {
-    bw<-npregbw(xdat=xtab, ydat=ytab, regtype="lc", ckertype="gaussian")
-    hopt<-max(max(diff(sort(xtab))),bw$bw)
- 
+  if(technique=="pr" && bw_method=="cv"){
+    bw <- npregbw(xdat = xtab, ydat = ytab, regtype = "lc", ckertype = "gaussian")
+    hopt <- max(max(diff(sort(xtab))), bw$bw)
+    hopt <- min(diff(range(xtab)), hopt)
   }
+  
   return(hopt)
-  
 }

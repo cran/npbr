@@ -4,4 +4,8 @@ importFrom(Benchmarking, dea)
 importFrom(quadprog, solve.QP)
 importFrom(Rglpk, Rglpk_solve_LP)
 importFrom(splines, spline.des)
-exportPattern("^[[:alpha:]]+")
+export(cub_spline_est, cub_spline_kn, dea_est, dfs_momt,
+dfs_pick, dfs_pwm, kern_smooth, kern_smooth_bw, kopt_momt_pick, 
+loc_est, loc_est_bw, loc_max, mopt_pwm, pick_est, poly_degree,
+poly_est, quad_spline_est, quad_spline_kn, rho_momt_pick, rho_pwm)
+useDynLib(npbr, .registration = TRUE)

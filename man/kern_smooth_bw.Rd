@@ -7,7 +7,8 @@ Bandwidth selection for kernel smoothing frontier estimators
 The function \code{kern_smooth_bw} provides two bandwidth selection methods. One is the least squares cross-validation developed by Parmeter and Racine (2013). The other is the BIC developed in Noh (2014).    
 }
 \usage{
-kern_smooth_bw(xtab, ytab, method="u", technique="noh", bw_method="bic")
+kern_smooth_bw(xtab, ytab, method="u", technique="noh", bw_method="bic", 
+ control = list("tm_limit" = 700))
 }
 
 \arguments{
@@ -16,6 +17,7 @@ kern_smooth_bw(xtab, ytab, method="u", technique="noh", bw_method="bic")
   \item{method}{a character equal to "u" (unconstrained estimator), "m" (under the monotonicity constraint) or "mc" (under simultaneous monotonicity and concavity constraints).}  
   \item{technique}{which estimation technique to use: "Noh" specifies the use of the method in Noh (2014), while "pr" is for the method in Parameter and Racine (2013).}  
   \item{bw_method}{which bandwidth selection method to use: "cv" returns the bandwidth that minimizes the least squares cross-validation criterion, and "bic" returns the bandwidth minimizing the BIC.}
+  \item{control}{a list of parameters to the GLPK solver. See *Details* of help(Rglpk_solve_LP).}  
 }
 \details{
 As with any smoothed techniques, the bandwidth selection is critical to the quality of the frontier estimator. Parmeter and Racine (2013)'s recommendation is to use the least squares cross-validation method implemented with \code{bw\_method="cv"} in the function \code{kern\_smooth\_bw}.

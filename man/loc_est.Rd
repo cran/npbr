@@ -7,7 +7,7 @@ Local linear frontier estimator
 Computes the local linear smoothing frontier estimator of Hall, Park and Stern (1998) and Hall and Park (2004).    
 }
 \usage{
-loc_est(xtab, ytab, x, h, method="u")
+loc_est(xtab, ytab, x, h, method="u", control = list("tm_limit" = 700))
 }
 
 \arguments{
@@ -15,7 +15,8 @@ loc_est(xtab, ytab, x, h, method="u")
   \item{ytab}{a numeric vector of the same length as \code{xtab} containing the observed outputs \eqn{y_1,\ldots,y_n}{y1,...,yn}.}
   \item{x}{a numeric vector of evaluation points in which the estimator is to be computed.}
   \item{h}{determines the bandwidth at which the local linear estimate will be computed.}
-  \item{method}{a character equal to "u" (unconstrained estimator) or "m" (improved version of the unconstrained estimator).}  
+  \item{method}{a character equal to "u" (unconstrained estimator) or "m" (improved version of the unconstrained estimator).} 
+  \item{control}{a list of parameters to the GLPK solver. See *Details* of help(Rglpk_solve_LP).}  
 }
 \details{
 In the unconstrained case (option \code{method="u"}), the implemented estimator of \eqn{\varphi(x)}{varphi(x)} is defined by
@@ -36,7 +37,7 @@ bandwidth \eqn{h} in  \eqn{\hat \varphi_{n,LL}(x)}{hat(varphi)[n,LL](x)} and \eq
 }
 
 \value{
-Returns a numeric vector with the same length as \code{x}.
+Returns a numeric vector with the same length as \code{x}. Returns a vector of NA if no solution has been found by the solver (GLPK). 
 }
 
 \references{

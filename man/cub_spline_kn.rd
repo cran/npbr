@@ -6,7 +6,8 @@ AIC and BIC criteria for choosing the number of inter-knot segments in cubic spl
 \description{
 Computes the optimal number of inter-knot segments for the (un)constrained cubic spline fit proposed by Daouia, Noh and Park (2015).}
 \usage{
-cub_spline_kn(xtab, ytab, method, krange = 1:20, type = "AIC")
+cub_spline_kn(xtab, ytab, method, krange = 1:20, type = "AIC", 
+ control = list("tm_limit" = 700))
 }
 \arguments{
   \item{xtab}{a numeric vector containing the observed inputs  \eqn{x_1,\ldots,x_n}{x1,...,xn}.}
@@ -14,6 +15,7 @@ cub_spline_kn(xtab, ytab, method, krange = 1:20, type = "AIC")
   \item{method}{a character equal to "u" (unconstrained estimator), "m" (under the monotonicity constraint) or "mc" (under simultaneous monotonicity and concavity constraints).}
   \item{krange}{a vector of integers specifying the range in which the optimal number of inter-knot segments is to be selected.}
   \item{type}{a character equal to "AIC" or "BIC".}
+  \item{control}{a list of parameters to the GLPK solver. See *Details* of help(Rglpk_solve_LP).}  
 }
 \details{
 The implementation of the unconstrained cubic spline smoother \eqn{\tilde\varphi_n}{tilde(varphi)[n]} (see \code{\link{cub_spline_est}}) 

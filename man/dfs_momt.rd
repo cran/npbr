@@ -69,52 +69,52 @@ Abdelaati Daouia and Thibault Laurent (converted from Leopold Simar's Matlab cod
 
 \examples{
 data("post")
-x.post<- seq(post$xinput[100],max(post$xinput), 
- length.out=100) 
+x.post <- seq(post$xinput[100], max(post$xinput), 
+ length.out = 100) 
 # 1. When rho[x] is known and equal to 2, we set:
-rho<-2
+rho <- 2
 # To determine the sample fraction k=k[n](x) 
 # in tilde(varphi[momt])(x).
-best_kn.1<-kopt_momt_pick(post$xinput, post$yprod, 
- x.post, rho=rho)
+best_kn.1 <- kopt_momt_pick(post$xinput, post$yprod, 
+ x.post, rho = rho)
 # To compute the frontier estimates and confidence intervals:  
-res.momt.1<-dfs_momt(post$xinput, post$yprod, x.post, 
- rho=rho, k=best_kn.1)
+res.momt.1 <- dfs_momt(post$xinput, post$yprod, x.post, 
+ rho = rho, k = best_kn.1)
 # Representation
-plot(yprod~xinput, data=post, xlab="Quantity of labor", 
- ylab="Volume of delivered mail")
-lines(x.post, res.momt.1[,1], lty=1, col="cyan")  
-lines(x.post, res.momt.1[,2], lty=3, col="magenta")  
-lines(x.post, res.momt.1[,3], lty=3, col="magenta")  
+plot(yprod~xinput, data = post, xlab = "Quantity of labor", 
+ ylab = "Volume of delivered mail")
+lines(x.post, res.momt.1[,1], lty = 1, col = "cyan")  
+lines(x.post, res.momt.1[,2], lty = 3, col = "magenta")  
+lines(x.post, res.momt.1[,3], lty = 3, col = "magenta")  
 
 \dontrun{
 # 2. rho[x] is unknown and estimated by 
 # the Pickands estimator tilde(rho[x])
-rho_momt<-rho_momt_pick(post$xinput, post$yprod, 
+rho_momt <- rho_momt_pick(post$xinput, post$yprod, 
  x.post)
-best_kn.2<-kopt_momt_pick(post$xinput, post$yprod,
-  x.post, rho=rho_momt)
-res.momt.2<-dfs_momt(post$xinput, post$yprod, x.post, 
- rho=rho_momt, k=best_kn.2)  
+best_kn.2 <- kopt_momt_pick(post$xinput, post$yprod,
+  x.post, rho = rho_momt)
+res.momt.2 <- dfs_momt(post$xinput, post$yprod, x.post, 
+ rho = rho_momt, k = best_kn.2)  
 # 3. rho[x] is unknown independent of x and estimated
 # by the (trimmed) mean of tilde(rho[x])
-rho_trimmean<-mean(rho_momt, trim=0.00)
-best_kn.3<-kopt_momt_pick(post$xinput, post$yprod,
-  x.post, rho=rho_trimmean)   
-res.momt.3<-dfs_momt(post$xinput, post$yprod, x.post, 
- rho=rho_trimmean, k=best_kn.3)  
+rho_trimmean <- mean(rho_momt, trim=0.00)
+best_kn.3 <- kopt_momt_pick(post$xinput, post$yprod,
+  x.post, rho = rho_trimmean)   
+res.momt.3 <- dfs_momt(post$xinput, post$yprod, x.post, 
+ rho = rho_trimmean, k = best_kn.3)  
 
 # Representation 
-plot(yprod~xinput, data=post, col="grey", xlab="Quantity of labor", 
- ylab="Volume of delivered mail")
-lines(x.post, res.momt.2[,1], lty=1, lwd=2, col="cyan")  
-lines(x.post, res.momt.2[,2], lty=3, lwd=4, col="magenta")  
-lines(x.post, res.momt.2[,3], lty=3, lwd=4, col="magenta")  
-plot(yprod~xinput, data=post, col="grey", xlab="Quantity of labor", 
- ylab="Volume of delivered mail")
-lines(x.post, res.momt.3[,1], lty=1, lwd=2, col="cyan")  
-lines(x.post, res.momt.3[,2], lty=3, lwd=4, col="magenta")  
-lines(x.post, res.momt.3[,3], lty=3, lwd=4, col="magenta") 
+plot(yprod~xinput, data = post, col = "grey", 
+ xlab = "Quantity of labor", ylab = "Volume of delivered mail")
+lines(x.post, res.momt.2[,1], lty = 1, lwd = 2, col = "cyan")  
+lines(x.post, res.momt.2[,2], lty = 3, lwd = 4, col = "magenta")  
+lines(x.post, res.momt.2[,3], lty = 3, lwd = 4, col = "magenta")  
+plot(yprod~xinput, data = post, col = "grey", 
+ xlab = "Quantity of labor", ylab = "Volume of delivered mail")
+lines(x.post, res.momt.3[,1], lty = 1, lwd = 2, col = "cyan")  
+lines(x.post, res.momt.3[,2], lty = 3, lwd = 4, col = "magenta")  
+lines(x.post, res.momt.3[,3], lty = 3, lwd = 4, col = "magenta") 
 }
 }
 

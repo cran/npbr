@@ -6,13 +6,15 @@ AIC and BIC criteria for choosing the optimal degree of the polynomial frontier 
 \description{
 Computes the optimal degree of the unconstrained polynomial frontier estimator proposed by Hall, Park and Stern (1998).}
 \usage{
-poly_degree(xtab, ytab, prange=0:20, type="AIC")
+poly_degree(xtab, ytab, prange=0:20, type="AIC", 
+ control = list("tm_limit" = 700))
 }
 \arguments{
   \item{xtab}{a numeric vector containing the observed inputs  \eqn{x_1,\ldots,x_n}{x1,...,xn}.}
   \item{ytab}{a numeric vector of the same length as \code{xtab} containing the observed outputs \eqn{y_1,\ldots,y_n}{y1,...,yn}.}
   \item{prange}{a vector of integers specifying the range in which the optimal degree of the polynomial frontier estimator is to be selected.}
   \item{type}{a character equal to "AIC" or "BIC".}
+  \item{control}{a list of parameters to the GLPK solver. See *Details* of help(Rglpk_solve_LP).}  
 }
 \details{
 As the degree \eqn{p} of the polynomial estimator \eqn{\hat \varphi_{n,p}}{hat(varphi)[n,p]} (see \code{\link{poly_est}}) determines the dimensionality of the approximating function, we may view the problem of choosing p as model selection.
@@ -44,12 +46,13 @@ Hohsuk Noh.
 }
 \examples{
 data("air")
-x.air <- seq(min(air$xtab), max(air$xtab), length.out=101)
+x.air <- seq(min(air$xtab), max(air$xtab), 
+ length.out = 101)
 # Optimal polynomial degrees via the AIC criterion
-(p.aic.air<-poly_degree(air$xtab, air$ytab, 
+(p.aic.air <- poly_degree(air$xtab, air$ytab, 
  type = "AIC"))
 # Optimal polynomial degrees via the BIC criterion  
-(p.bic.air<-poly_degree(air$xtab, air$ytab, 
+(p.bic.air <- poly_degree(air$xtab, air$ytab, 
  type = "BIC"))
 }
 \keyword{nonparametric}

@@ -8,7 +8,7 @@ The function cub_spline_est is an implementation of the (un)constrained cubic sp
 }
 \usage{
 cub_spline_est(xtab, ytab, x, kn = ceiling((length(xtab))^(1/4)), method= "u",
-               all.dea=FALSE)
+               all.dea=FALSE, control = list("tm_limit" = 700))
 }
 \arguments{
   \item{xtab}{a numeric vector containing the observed inputs  \eqn{x_1,\ldots,x_n}{x1,...,xn}.}
@@ -17,6 +17,7 @@ cub_spline_est(xtab, ytab, x, kn = ceiling((length(xtab))^(1/4)), method= "u",
   \item{kn}{an integer specifying the number of inter-knot segments used in the computation of the spline estimate.}
   \item{method}{a character equal to "u" (unconstrained estimator), "m" (under the monotonicity constraint) or "mc" (under simultaneous monotonicity and concavity constraints).}
   \item{all.dea}{a boolean.}
+  \item{control}{a list of parameters to the GLPK solver. See *Details* of help(Rglpk_solve_LP).}  
   }
 \details{
 Let \eqn{a} and \eqn{b} be, respectively, the minimum and maximum of the design points \eqn{x_1,\ldots,x_n}{x[1],...,x[n]}.  
@@ -41,7 +42,7 @@ When the estimate is required to be both monotone and concave, we use the functi
 }
 
 \value{
-Returns a numeric vector with the same length as \code{x}.
+Returns a numeric vector with the same length as \code{x}. Returns a vector of NA if no solution has been found by the solver (GLPK). 
 }
 \references{
 Daouia, A., Noh, H. and Park, B.U. (2015). Data Envelope fitting with constrained polynomial splines. \emph{Journal of the Royal Statistical Society: Series B}, to appear.

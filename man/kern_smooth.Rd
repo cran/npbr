@@ -7,7 +7,8 @@ Frontier estimation via kernel smoothing
 The function \code{kern_smooth} implements two frontier estimators based on kernel smoothing techniques. One is from Noh (2014) and the other is from Parmeter and Racine (2013).  
 }
 \usage{
-kern_smooth(xtab, ytab, x, h, method="u", technique="noh")
+kern_smooth(xtab, ytab, x, h, method="u", technique="noh", 
+ control = list("tm_limit" = 700))
 }
 
 \arguments{
@@ -16,7 +17,9 @@ kern_smooth(xtab, ytab, x, h, method="u", technique="noh")
   \item{x}{a numeric vector of evaluation points in which the estimator is to be computed.}
   \item{h}{determines the bandwidth at which the smoothed kernel estimate will be computed.}
   \item{method}{a character equal to "u" (unconstrained estimator), "m" (under the monotonicity constraint) or "mc" (under simultaneous monotonicity and concavity constraints).}  
-  \item{technique}{which estimation method to use. "Noh"" specifies the use of the method in Noh (2014) and "pr" is for the method in Parameter and Racine (2013).}}  
+  \item{technique}{which estimation method to use. "Noh"" specifies the use of the method in Noh (2014) and "pr" is for the method in Parameter and Racine (2013).}
+  \item{control}{a list of parameters to the GLPK solver. See *Details* of help(Rglpk_solve_LP).}  
+  }  
 
 \details{
 To estimate the frontier function, Parameter and Racine (2013) considered the following generalization of linear regression smoothers 
@@ -37,7 +40,7 @@ where it is assumed that the pairs \eqn{(x_i,y_i)} have been ordered so that \eq
 }
 
 \value{
-Returns a numeric vector with the same length as \code{x}.
+Returns a numeric vector with the same length as \code{x}. Returns a vector of NA if no solution has been found by the solver (GLPK). 
 }
 
 \references{
@@ -57,21 +60,24 @@ Hohsuk Noh
 \examples{
 \dontrun{
 data("green")
-x.green <- seq(min(log(green$COST)), max(log(green$COST)), length.out=101)
-options(np.tree=TRUE,crs.messages=FALSE,np.messages=FALSE)
+x.green <- seq(min(log(green$COST)), max(log(green$COST)), 
+ length.out = 101)
+options(np.tree=TRUE, crs.messages=FALSE, np.messages=FALSE)
 # 1. Unconstrained 
-(h.bic.green.u<-kern_smooth_bw(log(green$COST), log(green$OUTPUT), 
- method="u", technique="noh", bw_method="bic"))
-y.ks.green.u<-kern_smooth(log(green$COST), 
- log(green$OUTPUT), x.green, h=h.bic.green.u, 
- method="u", technique="noh")
+(h.bic.green.u <- kern_smooth_bw(log(green$COST), 
+ log(green$OUTPUT), method = "u", technique = "noh", 
+ bw_method = "bic"))
+y.ks.green.u <- kern_smooth(log(green$COST), 
+ log(green$OUTPUT), x.green, h = h.bic.green.u, 
+ method = "u", technique = "noh")
 
 # 2. Monotonicity constraint
-(h.bic.green.m<-kern_smooth_bw(log(green$COST),log(green$OUTPUT), 
- method="m", technique="noh", bw_method="bic"))
-y.ks.green.m<-kern_smooth(log(green$COST), 
- log(green$OUTPUT), x.green, h=h.bic.green.m, method="m", 
- technique="noh")
+(h.bic.green.m <- kern_smooth_bw(log(green$COST),
+ log(green$OUTPUT), method = "m", technique = "noh",
+ bw_method = "bic"))
+y.ks.green.m <- kern_smooth(log(green$COST), 
+ log(green$OUTPUT), x.green, h = h.bic.green.m, 
+ method = "m", technique = "noh")
 
 # 3. Monotonicity and Concavity constraints
 (h.bic.green.mc<-kern_smooth_bw(log(green$COST), log(green$OUTPUT), 
