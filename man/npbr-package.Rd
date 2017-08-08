@@ -4,7 +4,7 @@
 \docType{package}
 \title{Nonparametric boundary regression}
 \description{
-This package is the first free specialized software for data edge and frontier analysis in the statistical literature.
+The package npbr (Daouia et al., 2017) is the first free specialized software for data edge and frontier analysis in the statistical literature.
 It provides a variety of  functions for the best known and most innovative approaches to nonparametric boundary estimation. 
 The selected methods are concerned with empirical, smoothed, unrestricted  as well  as constrained fits under both separate and multiple shape constraints.  
 They also cover data envelopment techniques as well as robust approaches to outliers. 
@@ -30,7 +30,7 @@ decay to zero or rise up to infinity as it approaches its support boundary.
 
 The overall objective of the present package is to provide a large variety of functions for the best known approaches to nonparametric boundary regression, 
 including the vast class of methods employed in both Monte Carlo 
-comparisons of  Daouia et al. (2015) and Noh (2014) as well as other promising nonparametric devices, namely the extreme-value techniques 
+comparisons of  Daouia et al. (2016) and Noh (2014) as well as other promising nonparametric devices, namely the extreme-value techniques 
 of Gijbels and Peng (2000), Daouia et al. (2010) and Daouia et al. (2012).   
 The various functions in the \pkg{npbr} package are summarized in the table below.
 We are not aware of any other existing set of statistical routines more adapted to data envelope fitting and robust frontier estimation.  
@@ -99,8 +99,9 @@ Daouia, A., Florens, J.-P. and Simar, L. (2010). Frontier estimation and extreme
 
 Daouia, A., Florens, J.-P. and Simar, L. (2012). Regularization of Nonparametric Frontier Estimators. \emph{Journal of Econometrics}, \bold{168}, 285-299.
 
-Daouia, A., Noh, H. and Park, B.U. (2015). Data Envelope fitting with constrained polynomial splines. \emph{Journal of the Royal Statistical Society: Series B}, p. To Appear. doi:10.1111/rssb.
-12098.
+Daouia, A., Laurent, T. and Noh, H. (2017). npbr: A Package for Nonparametric Boundary Regression in R. \emph{Journal of Statistical Software}, \bold{79}(9), 1-43. doi:10.18637/jss.v079.i09.
+	
+Daouia, A., Noh, H. and Park, B.U. (2016). Data Envelope fitting with constrained polynomial splines. \emph{Journal of the Royal Statistical Society: Series B}, \bold{78}(1), 3-30. doi:10.1111/rssb.12098.
 
 Dekkers, A.L.M. and L. de Haan (1989). On the estimation of extreme-value index and large quantiles estimation. \emph{Annals of Statistics}, \bold{17}, 1795-1832.
 

@@ -4,7 +4,7 @@
 Cubic spline fitting 
 }
 \description{
-The function cub_spline_est is an implementation of the (un)constrained cubic spline estimates proposed by Daouia, Noh and Park (2015).
+The function cub_spline_est is an implementation of the (un)constrained cubic spline estimates proposed by Daouia, Noh and Park (2016).
 }
 \usage{
 cub_spline_est(xtab, ytab, x, kn = ceiling((length(xtab))^(1/4)), method= "u",
@@ -45,7 +45,7 @@ When the estimate is required to be both monotone and concave, we use the functi
 Returns a numeric vector with the same length as \code{x}. Returns a vector of NA if no solution has been found by the solver (GLPK). 
 }
 \references{
-Daouia, A., Noh, H. and Park, B.U. (2015). Data Envelope fitting with constrained polynomial splines. \emph{Journal of the Royal Statistical Society: Series B}, to appear.
+Daouia, A., Noh, H. and Park, B.U. (2016). Data Envelope fitting with constrained polynomial splines. \emph{Journal of the Royal Statistical Society: Series B}, \bold{78}(1), 3-30. doi:10.1111/rssb.12098.
 
 Lu, M., Zhang, Y. and Huang, J. (2007). Estimation of the mean function with panel count data using monotone polynomial splines. \emph{Biometrika}, \bold{94}, 705-718.
 

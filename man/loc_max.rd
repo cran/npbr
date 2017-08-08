@@ -34,7 +34,7 @@ More precisely, they define
 \eqn{\tilde{y}_i= y_i}{y tilde[i]=y[i]} if \eqn{|x_i-x| > h}{abs(x[i]-x)>h} and \eqn{\tilde{y}_i= z^{xh}_{(n)}}{y tilde[i]=y[i]} if \eqn{|x_i-x| \leq h}{abs(x[i]-x)<=h} either.
 Then, they apply the DEA estimator (see the function \code{\link{dea_est}}) to these transformed data \eqn{(x_i,\tilde{y}_i)}{(x[i],tilde y[i])},
 giving  the local DEA  estimator  (option  \code{type="two-stage"}). 
-An \emph{ad hoc} way of selecting \eqn{h} is by using for instance the function \code{npcdistbw} from the \pkg{np} package (see Daouia et al. (2015) for details).
+An \emph{ad hoc} way of selecting \eqn{h} is by using for instance the function \code{npcdistbw} from the \pkg{np} package (see Daouia et al. (2016) for details).
 }
 
 \value{
@@ -43,7 +43,7 @@ Returns a numeric vector with the same length as \code{x}.
 
 
 \references{
-Daouia, A., Laurent, T. and Noh, H. (2015). \pkg{npbr}: A Package for Nonparametric Boundary Regression in R. 
+Daouia, A., Laurent, T. and Noh, H. (2017). npbr: A Package for Nonparametric Boundary Regression in R. \emph{Journal of Statistical Software}, \bold{79}(9), 1-43. doi:10.18637/jss.v079.i09.
 
 Gijbels, I. and Peng, L. (2000). Estimation of a support curve  via order statistics, \emph{Extremes}, 3,  251--277. 
 }

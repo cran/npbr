@@ -18,7 +18,7 @@ poly_degree(xtab, ytab, prange=0:20, type="AIC",
 }
 \details{
 As the degree \eqn{p} of the polynomial estimator \eqn{\hat \varphi_{n,p}}{hat(varphi)[n,p]} (see \code{\link{poly_est}}) determines the dimensionality of the approximating function, we may view the problem of choosing p as model selection.
-By analogy to the information criteria proposed by Daouia et al. (2015) in the boundary regression context, we obtain the optimal polynomial degree by minimizing
+By analogy to the information criteria proposed by Daouia et al. (2016) in the boundary regression context, we obtain the optimal polynomial degree by minimizing
 \deqn{
 AIC(p) = \log \left( \sum_{i=1}^{n} (\hat \varphi_{n,p}(x_i)-y_i)\right) + (p+1)/n ,}{AIC(k) = log(sum from 1 to n (varphihat[n,p](x[i])-y[i])) + (p+1)/n,}
 \deqn{BIC(p) = \log \left( \sum_{i=1}^{n} (\hat \varphi_{n,p}(x_i)-y_i)\right) + \log n (p+1)/(2n).}{AIC(k) = log(sum from 1 to n (varphihat[n,p](x[i])-y[i])) + log(n)(p+1)/(2n).}
@@ -31,7 +31,7 @@ Returns an integer.
 \references{
 Akaike, H. (1973).  Information theory and an extension of the maximum likelihood principle, in \emph{Second International Symposium of Information Theory}, eds. B. N. Petrov and F. Csaki, Budapest: Akademia Kiado, 267--281.  
 
-Daouia, A., Noh, H. and Park, B.U. (2015). Data Envelope fitting with constrained polynomial splines. \emph{Journal of the Royal Statistical Society: Series B}, to appear.
+Daouia, A., Noh, H. and Park, B.U. (2016). Data Envelope fitting with constrained polynomial splines. \emph{Journal of the Royal Statistical Society: Series B}, \bold{78}(1), 3-30. doi:10.1111/rssb.12098.
 
 Hall, P., Park, B.U. and Stern, S.E. (1998). On polynomial estimators of frontiers and boundaries. \emph{Journal of Multivariate Analysis}, 66, 71-98.
 

@@ -4,7 +4,7 @@
 AIC and BIC criteria for choosing the number of inter-knot segments in cubic spline fits  
 }
 \description{
-Computes the optimal number of inter-knot segments for the (un)constrained cubic spline fit proposed by Daouia, Noh and Park (2015).}
+Computes the optimal number of inter-knot segments for the (un)constrained cubic spline fit proposed by Daouia, Noh and Park (2016).}
 \usage{
 cub_spline_kn(xtab, ytab, method, krange = 1:20, type = "AIC", 
  control = list("tm_limit" = 700))
@@ -36,7 +36,7 @@ Returns an integer.
 \references{
 Akaike, H. (1973).  Information theory and an extension of the maximum likelihood principle, in \emph{Second International Symposium of Information Theory}, eds. B. N. Petrov and F. Csaki, Budapest: Akademia Kiado, 267--281.  
 
-Daouia, A., Noh, H. and Park, B.U. (2015). Data Envelope fitting with constrained polynomial splines. \emph{Journal of the Royal Statistical Society: Series B}, to appear.
+Daouia, A., Noh, H. and Park, B.U. (2016). Data Envelope fitting with constrained polynomial splines. \emph{Journal of the Royal Statistical Society: Series B}, \bold{78}(1), 3-30. doi:10.1111/rssb.12098.
 
 Schwartz, G. (1978). Estimating the dimension of a model, \emph{Annals of Statistics}, 6, 461--464.
 }

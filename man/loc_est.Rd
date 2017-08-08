@@ -26,11 +26,11 @@ In the unconstrained case (option \code{method="u"}), the implemented estimator 
 where the bandwidth \eqn{h} has to be fixed by the user in the 4th argument of the function.
 This estimator may lack of smoothness in case of small samples and has no guarantee of being monotone  even if the true frontier is so.  
 Following the curvature of the monotone frontier \eqn{\varphi}{varphi}, the unconstrained  estimator \eqn{\hat \varphi_{n,LL}}{hat(varphi)[n,LL]}  is likely to exhibit substantial bias, especially at the sample boundaries 
-(see Daouia et al (2015) for numerical illustrations). A simple way to remedy to this drawback is by imposing the extra condition \eqn{\theta \geq 0}{theta <0} in the definition of \eqn{\hat \varphi_{n,LL}(x)}{hat(varphi)[n,LL](x)} to get 
+(see Daouia et al (2016) for numerical illustrations). A simple way to remedy to this drawback is by imposing the extra condition \eqn{\theta \geq 0}{theta <0} in the definition of \eqn{\hat \varphi_{n,LL}(x)}{hat(varphi)[n,LL](x)} to get 
 \deqn{
 \tilde \varphi_{n,LL}(x) = \min  \Big\{ z : {\rm there~exists~} \theta\geq 0 ~{\rm such~that~} y_i \leq z + \theta(x_i - x)}{hat(varphi)[n,LL](x) = min{ z : there exists  theta>=0 such that y_i <= z + theta(xi - x)}}
 \deqn{{\rm for~all}~i~{\rm such~that~}x_i \in (x-h,x+h) \Big\}.}{for all i such that xi in (x-h,x+h).}
-As shown in Daouia et al (2015), this version only reduces the vexing bias and border defects of the original estimator when the true frontier is monotone. 
+As shown in Daouia et al (2016), this version only reduces the vexing bias and border defects of the original estimator when the true frontier is monotone. 
 The option \code{method="m"} indicates that the improved fit \eqn{\tilde \varphi_{n,LL}(x)}{tilde(varphi)[n,LL](x)} should be utilized in place of \eqn{\hat \varphi_{n,LL}(x)}{hat(varphi)[n,LL](x)}. 
 Hall and Park (2004) proposed a bootstrap procedure for selecting the optimal 
 bandwidth \eqn{h} in  \eqn{\hat \varphi_{n,LL}(x)}{hat(varphi)[n,LL](x)} and \eqn{\tilde \varphi_{n,LL}(x)}{tilde(varphi)[n,LL](x)} (see the function \code{\link{loc_est_bw}}).
@@ -41,7 +41,7 @@ Returns a numeric vector with the same length as \code{x}. Returns a vector of N
 }
 
 \references{
-Daouia, A., Noh, H. and Park, B.U. (2015). Data Envelope fitting with constrained polynomial splines. \emph{Journal of the Royal Statistical Society: Series B}, to appear.
+Daouia, A., Noh, H. and Park, B.U. (2016). Data Envelope fitting with constrained polynomial splines. \emph{Journal of the Royal Statistical Society: Series B}, \bold{78}(1), 3-30. doi:10.1111/rssb.12098.
 
 Hall, P. and Park, B.U. (2004). Bandwidth choice for local polynomial estimation of smooth boundaries. \emph{Journal of Multivariate Analysis}, 91, 240-261. 
 

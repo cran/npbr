@@ -4,7 +4,7 @@
 Quadratic spline frontiers 
 }
 \description{
-This function is an implementation of the (un)constrained quadratic spline smoother proposed by Daouia, Noh and Park (2015).
+This function is an implementation of the (un)constrained quadratic spline smoother proposed by Daouia, Noh and Park (2016).
 }
 \usage{
 quad_spline_est(xtab, ytab, x, kn = ceiling((length(xtab))^(1/4)), method= "u", 
@@ -55,7 +55,7 @@ the FDH points \eqn{(\mathcal{X}_1,\mathcal{Y}_1),\ldots, (\mathcal{X}_\mathcal{
 with the DEA points \eqn{(\mathcal{X}^*_1,\mathcal{Y}^*_1),\ldots, (\mathcal{X}^*_\mathcal{M},\mathcal{Y}^*_\mathcal{M})}{(X*[1],Y*[1]),...,(X*[M],Y*[M])}, that is, 
 the observations \eqn{(x_i,y_i)}{(x[i],y[i])} lying on the piecewise linear DEA frontier  (see the function \code{\link{dea_est}}). 
 Alternatively, the strategy of just using all the DEA points as knots is also 
-working quite well for datasets of modest size as shown in Daouia et al. (2015). 
+working quite well for datasets of modest size as shown in Daouia et al. (2016). 
 In this case, the user has to choose the option \code{all.dea=TRUE}.
 }
 
@@ -64,7 +64,8 @@ Returns a numeric vector with the same length as \code{x}. Returns a vector of N
 }
 
 \references{
-Daouia, A., Noh, H. and Park, B.U. (2015). Data Envelope fitting with constrained polynomial splines. \emph{Journal of the Royal Statistical Society: Series B}, to appear.
+Daouia, A., Noh, H. and Park, B.U. (2016). Data Envelope fitting with constrained polynomial splines. \emph{Journal of the Royal Statistical Society: Series B}, \bold{78}(1), 3-30. doi:10.1111/rssb.12098.
+
 Schumaker, L.L. (2007). \emph{Spline Functions: Basic Theory}, 3rd edition, Cambridge University Press.
 }
 \author{

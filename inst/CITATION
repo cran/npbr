@@ -1,18 +1,24 @@
-citHeader("To cite npbr in publications use:")
-
-citEntry(entry = "Article",
+bibentry(bibtype = "Article",
   title        = "{npbr}: A Package for Nonparametric Boundary Regression in {R}",
-  author       = personList(as.person("Abdelaati Daouia"),
-                   as.person("Thibault Laurent"),
-                   as.person("Hohsuk Noh")),
+  author       = c(person(given = "Abdelaati",
+                          family = "Daouia"),
+                   person(given = "Thibault",
+                          family = "Laurent",
+                          email = "Thibault.Laurent@univ-tlse1.fr"),
+                   person(given = "Hohsuk",
+                          family = "Noh")),
   journal      = "Journal of Statistical Software",
   year         = "2017",
-  url          = "http://www.jstatsoft.org/",
+  volume       = "79",
+  number       = "9",
+  pages        = "1--43",
+  doi          = "10.18637/jss.v079.i09",
 
+  header       = "To cite npbr in publications use:",
   textVersion  =
   paste("Abdelaati Daouia, Thibault Laurent, Hohsuk Noh (2017).",
         "npbr: A Package for Nonparametric Boundary Regression in R.",
-        "Journal of Statistical Software, Forthcoming.",
-        "URL http://www.jstatsoft.org/")
+        "Journal of Statistical Software, 79(9), 1-43.",
+        "doi:10.18637/jss.v079.i09")
 )
 
