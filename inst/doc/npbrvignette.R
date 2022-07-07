@@ -11,14 +11,14 @@ options(prompt = "R> ", continue = "+  ", width = 70, useFancyQuotes = FALSE)
 ### code chunk number 2: bfig2 (eval = FALSE)
 ###################################################
 ## .PngNo <- .PngNo + 1; name.file <- paste("Figures/Fig-bitmap-", .PngNo, ".pdf", sep="")
-## pdf(file=name.file, width = 14, height = 7, pointsize = 14, bg = "white")
+## pdf(file=name.file, width = 7, height = 3.5, bg = "white")
 
 
 ###################################################
 ### code chunk number 3: bfig4 (eval = FALSE)
 ###################################################
 ## .PngNo <- .PngNo + 1; name.file <- paste("Figures/Fig-bitmap-", .PngNo, ".pdf", sep="")
-## pdf(file=name.file, width = 18, height = 7, pointsize = 14, bg = "white")
+## pdf(file=name.file, width = 9, height = 3.5, bg = "white")
 
 
 ###################################################
@@ -131,7 +131,7 @@ y.lfdh.air <- dea_est(air$xtab, air$ytab, x.air, type = "lfdh")
 ### code chunk number 13: npbrvignette.rnw:490-510
 ###################################################
 .PngNo <- .PngNo + 1; name.file <- paste("Figures/Fig-bitmap-", .PngNo, ".pdf", sep="")
-pdf(file=name.file, width = 14, height = 7, pointsize = 14, bg = "white")
+pdf(file=name.file, width = 7, height = 3.5, bg = "white")
 op=par(mfrow = c(1, 2), mar = c(3, 3.1, 2.1, 2.1), mgp = c(2, .4, 0),
  oma = c(0, 0, 0, 0), cex.lab = 1.4)
 plot(x.green, y.dea.green, lty = 4, lwd = 4, col = "cyan",
@@ -198,7 +198,7 @@ y.poly.nuc <- poly_est(nuclear$xtab, nuclear$ytab, x.nucl,
 ### code chunk number 17: npbrvignette.rnw:587-608
 ###################################################
 .PngNo <- .PngNo + 1; name.file <- paste("Figures/Fig-bitmap-", .PngNo, ".pdf", sep="")
-pdf(file=name.file, width = 18, height = 7, pointsize = 14, bg = "white")
+pdf(file=name.file, width = 9, height = 3.5, bg = "white")
 op = par(mfrow = c(1, 3), mar = c(4.5, 4.5, 2.1, 2.1), mgp = c(2.9, 1.1, 0),
  oma = c(0, 0, 0, 0), cex.lab = 2.3, cex.axis = 2.3)
 plot(x.records, 1/y.poly.records, lty = 1, lwd = 4,
@@ -301,7 +301,7 @@ y.quad.green.mc <- quad_spline_est(log(green$COST), log(green$OUTPUT),
 ### code chunk number 25: npbrvignette.rnw:773-794
 ###################################################
 .PngNo <- .PngNo + 1; name.file <- paste("Figures/Fig-bitmap-", .PngNo, ".pdf", sep="")
-pdf(file=name.file, width = 14, height = 7, pointsize = 14, bg = "white")
+pdf(file=name.file, width = 7, height = 3.5, bg = "white")
 op=par(mfrow=c(1,2),mar=c(3,3.1,2.1,2.1),mgp=c(2,.4,0),oma=c(0,0,0,0),
  cex.lab=1.3, cex.axis=1.2)
 plot(x.air, y.quad.air.u, lty=1, lwd=4, col="green",
@@ -382,7 +382,7 @@ y.cub.green.mc <- cub_spline_est(log(green$COST), log(green$OUTPUT),
 ### code chunk number 29: npbrvignette.rnw:876-897
 ###################################################
 .PngNo <- .PngNo + 1; name.file <- paste("Figures/Fig-bitmap-", .PngNo, ".pdf", sep="")
-pdf(file=name.file, width = 14, height = 7, pointsize = 14, bg = "white")
+pdf(file=name.file, width = 7, height = 3.5, bg = "white")
 op = par(mfrow = c(1,2), mar = c(3, 3.1, 2.1, 2.1), mgp = c(2, .4, 0),
  oma = c(0, 0, 0, 0), cex.lab = 1.3, cex.axis = 1.2)
 plot(x.air, y.cub.air.u, lty = 1, lwd = 4, col = "green",
@@ -509,7 +509,7 @@ y.nucl.m <- loc_est(nuclear$xtab, nuclear$ytab, x.nucl,
 ### code chunk number 42: npbrvignette.rnw:1008-1032
 ###################################################
 .PngNo <- .PngNo + 1; name.file <- paste("Figures/Fig-bitmap-", .PngNo, ".pdf", sep="")
-pdf(file=name.file, width = 18, height = 7, pointsize = 14, bg = "white")
+pdf(file=name.file, width = 9, height = 3.5, bg = "white")
 op = par(mfrow = c(1, 3), mar = c(4.5, 4.5, 2.1, 2.1), mgp = c(2.9, 1.1, 0),
  oma = c(0, 0, 0, 0), cex.lab = 2.3, cex.axis = 2.3)
 plot(x.records, 1/y.records.u, lty = 1, lwd = 4, col = "magenta", type = "l", 
@@ -588,7 +588,7 @@ loc_max_2stage.opt <- loc_max(log(green$COST), log(green$OUTPUT), x.green,
 ### code chunk number 48: npbrvignette.rnw:1120-1135
 ###################################################
 .PngNo <- .PngNo + 1; name.file <- paste("Figures/Fig-bitmap-", .PngNo, ".pdf", sep="")
-pdf(file=name.file, width = 14, height = 7, pointsize = 14, bg = "white")
+pdf(file=name.file, width = 7, height = 3.5, bg = "white")
 op = par(mfrow = c(1, 2), mar = c(3, 3.1, 2.1, 2.1), mgp = c(2, .4, 0),
  oma = c(0, 0, 0, 0), cex.lab = 1.2, cex.axis = 1.2)
 plot(log(OUTPUT) ~ log(COST), data = green, main = "Peng and Gijbels choice")
@@ -659,7 +659,7 @@ y.noh.green.m <- kern_smooth(log(green$COST), log(green$OUTPUT), x.green,
 ### code chunk number 55: npbrvignette.rnw:1269-1277
 ###################################################
 .PngNo <- .PngNo + 1; name.file <- paste("Figures/Fig-bitmap-", .PngNo, ".pdf", sep="")
-pdf(file=name.file, width = 14, height = 7, pointsize = 14, bg = "white")
+pdf(file=name.file, width = 7, height = 3.5, bg = "white")
 plot(log(OUTPUT) ~ log(COST), data = green, xlab = "log(COST)", 
  ylab = "log(OUTPUT)", cex.lab = 1.2, cex.axis = 1.2)
 lines(x.green, y.pr.green.m, lwd = 4, lty = 2, col = "blue")
@@ -743,19 +743,21 @@ res.momt.3 = dfs_momt(post$xinput, post$yprod, x.post,
 
 
 ###################################################
-### code chunk number 64: npbrvignette.rnw:1411-1426 (eval = FALSE)
+### code chunk number 64: npbrvignette.rnw:1411-1428 (eval = FALSE)
 ###################################################
-## plot(yprod ~ xinput, data = post, xlab = "Quantity of labor",
+## my_samp <- post[sample(1:nrow(post), 1000), ]
+## plot(yprod ~ xinput, data = my_samp, 
+##      xlab = "Quantity of labor",
 ##  ylab = "Volume of delivered mail")
 ## lines(x.post, res.momt.1[,1], lty = 1, col = "cyan")
 ## lines(x.post, res.momt.1[,2], lty = 3, col = "magenta")
 ## lines(x.post, res.momt.1[,3], lty = 3, col = "magenta")
-## plot(yprod ~ xinput, data = post, xlab = "Quantity of labor",
+## plot(yprod ~ xinput, data = my_samp, xlab = "Quantity of labor",
 ##  ylab = "Volume of delivered mail")
 ## lines(x.post, res.momt.2[,1], lty = 1, col = "cyan")
 ## lines(x.post, res.momt.2[,2], lty = 3, col = "magenta")
 ## lines(x.post, res.momt.2[,3], lty = 3, col = "magenta")
-## plot(yprod ~ xinput, data = post, xlab = "Quantity of labor",
+## plot(yprod ~ xinput, data = my_samp, xlab = "Quantity of labor",
 ##  ylab = "Volume of delivered mail")
 ## lines(x.post, res.momt.3[,1], lty = 1, col = "cyan")
 ## lines(x.post, res.momt.3[,2], lty = 3, col = "magenta")
@@ -763,23 +765,24 @@ res.momt.3 = dfs_momt(post$xinput, post$yprod, x.post,
 
 
 ###################################################
-### code chunk number 65: npbrvignette.rnw:1430-1450
+### code chunk number 65: npbrvignette.rnw:1432-1453
 ###################################################
 .PngNo <- .PngNo + 1; name.file <- paste("Figures/Fig-bitmap-", .PngNo, ".pdf", sep="")
-pdf(file=name.file, width = 18, height = 7, pointsize = 14, bg = "white")
+pdf(file=name.file, width = 9, height = 3.5, bg = "white")
+my_samp <- post[sample(1:nrow(post), 1000), ]
 op = par(mfrow = c(1, 3), mar = c(4.5, 4.5, 2.1, 2.1), mgp = c(2.9, 1.1, 0),
  oma = c(0, 0, 0, 0), cex.lab = 2.3, cex.axis = 2.3)
-plot(yprod ~ xinput, data = post, col = "grey", xlab = "Quantity of labor",
+plot(yprod ~ xinput, data = my_samp, col = "grey", xlab = "Quantity of labor",
   ylab = "Volume of delivered mail")
 lines(x.post, res.momt.1[,1], lty = 1, lwd = 2, col = "cyan")
 lines(x.post, res.momt.1[,2], lty = 3, lwd = 4, col = "magenta")
 lines(x.post, res.momt.1[,3], lty = 3, lwd = 4, col = "magenta")
-plot(yprod ~ xinput, data = post,  col = "grey", xlab = "Quantity of labor", 
+plot(yprod ~ xinput, data = my_samp,  col = "grey", xlab = "Quantity of labor", 
  ylab = "Volume of delivered mail")
 lines(x.post, res.momt.2[,1], lty = 1, lwd = 2, col = "cyan")
 lines(x.post, res.momt.2[,2], lty = 3, lwd = 4, col = "magenta")
 lines(x.post, res.momt.2[,3], lty = 3, lwd = 4, col = "magenta")
-plot(yprod ~ xinput, data = post, col = "grey", xlab = "Quantity of labor",
+plot(yprod ~ xinput, data = my_samp, col = "grey", xlab = "Quantity of labor",
  ylab = "Volume of delivered mail")
 lines(x.post, res.momt.3[,1], lty = 1, lwd = 2, col = "cyan")
 lines(x.post, res.momt.3[,2], lty = 3, lwd = 4, col = "magenta")
@@ -790,34 +793,34 @@ cat("\\includegraphics[width=0.9\\textwidth]{", name.file, "}\n\n", sep="")
 
 
 ###################################################
-### code chunk number 66: npbrvignette.rnw:1505-1506
+### code chunk number 66: npbrvignette.rnw:1508-1509
 ###################################################
 rho <- 2
 
 
 ###################################################
-### code chunk number 67: npbrvignette.rnw:1509-1511
+### code chunk number 67: npbrvignette.rnw:1512-1514
 ###################################################
 best_kn.1 <- kopt_momt_pick(post$xinput, post$yprod, x.post,
  method = "pickands", rho = rho)
 
 
 ###################################################
-### code chunk number 68: npbrvignette.rnw:1514-1516
+### code chunk number 68: npbrvignette.rnw:1517-1519
 ###################################################
 rho_pick <- rho_momt_pick(post$xinput, post$yprod, x.post,
  method = "pickands")
 
 
 ###################################################
-### code chunk number 69: npbrvignette.rnw:1519-1521
+### code chunk number 69: npbrvignette.rnw:1522-1524
 ###################################################
 best_kn.2 <- kopt_momt_pick(post$xinput, post$yprod, x.post,
  method = "pickands", rho = rho_pick)
 
 
 ###################################################
-### code chunk number 70: npbrvignette.rnw:1525-1528
+### code chunk number 70: npbrvignette.rnw:1528-1531
 ###################################################
 rho_trimmean <- mean(rho_pick, trim = 0.05)
 best_kn.3 <- kopt_momt_pick(post$xinput, post$yprod, x.post,
@@ -825,7 +828,7 @@ best_kn.3 <- kopt_momt_pick(post$xinput, post$yprod, x.post,
 
 
 ###################################################
-### code chunk number 71: npbrvignette.rnw:1531-1537
+### code chunk number 71: npbrvignette.rnw:1534-1540
 ###################################################
 res.pick.1 <- dfs_pick(post$xinput, post$yprod, x.post,
  rho = rho, k = best_kn.1)
@@ -836,19 +839,19 @@ res.pick.3 <- dfs_pick(post$xinput, post$yprod, x.post,
 
 
 ###################################################
-### code chunk number 72: npbrvignette.rnw:1541-1556 (eval = FALSE)
+### code chunk number 72: npbrvignette.rnw:1544-1559 (eval = FALSE)
 ###################################################
-## plot(yprod ~ xinput, data = post, xlab = "Quantity of labor",
+## plot(yprod ~ xinput, data = my_samp, xlab = "Quantity of labor",
 ##  ylab = "Volume of delivered mail")
 ## lines(x.post, res.pick.1[,1], lty = 1, col = "cyan")
 ## lines(x.post, res.pick.1[,2], lty = 3, col = "magenta")
 ## lines(x.post, res.pick.1[,3], lty = 3, col = "magenta")
-## plot(yprod ~ xinput, data = post, xlab = "Quantity of labor",
+## plot(yprod ~ xinput, data = my_samp, xlab = "Quantity of labor",
 ##  ylab = "Volume of delivered mail")
 ## lines(x.post, res.pick.2[,1], lty = 1, col = "cyan")
 ## lines(x.post, res.pick.2[,2], lty = 3, col = "magenta")
 ## lines(x.post, res.pick.2[,3], lty = 3, col = "magenta")
-## plot(yprod ~ xinput, data = post, xlab = "Quantity of labor",
+## plot(yprod ~ xinput, data = my_samp, xlab = "Quantity of labor",
 ##  ylab = "Volume of delivered mail")
 ## lines(x.post, res.pick.3[,1], lty = 1, col = "cyan")
 ## lines(x.post, res.pick.3[,2], lty = 3, col = "magenta")
@@ -856,23 +859,23 @@ res.pick.3 <- dfs_pick(post$xinput, post$yprod, x.post,
 
 
 ###################################################
-### code chunk number 73: npbrvignette.rnw:1560-1580
+### code chunk number 73: npbrvignette.rnw:1563-1583
 ###################################################
 .PngNo <- .PngNo + 1; name.file <- paste("Figures/Fig-bitmap-", .PngNo, ".pdf", sep="")
-pdf(file=name.file, width = 18, height = 7, pointsize = 14, bg = "white")
+pdf(file=name.file, width = 9, height = 3.5, bg = "white")
 op = par(mfrow = c(1, 3), mar = c(4.5, 4.5, 2.1, 2.1), mgp = c(2.9, 1.1, 0),
  oma = c(0, 0, 0, 0), cex.lab = 2.3, cex.axis = 2.3)
-plot(yprod ~ xinput, data = post, col = "grey", xlab = "Quantity of labor", 
+plot(yprod ~ xinput, data = my_samp, col = "grey", xlab = "Quantity of labor", 
  ylab = "Volume of delivered mail")
 lines(x.post, res.pick.1[,1], lty = 1, lwd = 2, col = "cyan")
 lines(x.post, res.pick.1[,2], lty = 3, lwd = 4, col = "magenta")
 lines(x.post, res.pick.1[,3], lty = 3, lwd = 4, col = "magenta")
-plot(yprod~xinput, data = post, col = "grey", xlab = "Quantity of labor", 
+plot(yprod~xinput, data = my_samp, col = "grey", xlab = "Quantity of labor", 
  ylab = "Volume of delivered mail")
 lines(x.post, res.pick.2[,1], lty = 1, lwd = 2, col = "cyan")
 lines(x.post, res.pick.2[,2], lty = 3, lwd = 4, col = "magenta")
 lines(x.post, res.pick.2[,3], lty = 3, lwd = 4, col = "magenta")
-plot(yprod ~ xinput, data = post, col = "grey", xlab = "Quantity of labor", 
+plot(yprod ~ xinput, data = my_samp, col = "grey", xlab = "Quantity of labor", 
  ylab = "Volume of delivered mail")
 lines(x.post, res.pick.3[,1], lty = 1, lwd = 2, col = "cyan")
 lines(x.post, res.pick.3[,2], lty = 3, lwd = 4, col = "magenta")
@@ -883,13 +886,13 @@ cat("\\includegraphics[width=0.9\\textwidth]{", name.file, "}\n\n", sep="")
 
 
 ###################################################
-### code chunk number 74: npbrvignette.rnw:1699-1700
+### code chunk number 74: npbrvignette.rnw:1702-1703
 ###################################################
 rho <- 2
 
 
 ###################################################
-### code chunk number 75: npbrvignette.rnw:1703-1707 (eval = FALSE)
+### code chunk number 75: npbrvignette.rnw:1706-1710 (eval = FALSE)
 ###################################################
 ## best_cm.1 <- mopt_pwm(post$xinput, post$yprod, x.post,
 ##  a = 2, rho = rho, wind.coef = 0.1)
@@ -898,7 +901,7 @@ rho <- 2
 
 
 ###################################################
-### code chunk number 76: npbrvignette.rnw:1709-1734
+### code chunk number 76: npbrvignette.rnw:1712-1737
 ###################################################
 res.pwm.1<-matrix(c(3693.689,3391.852,3995.527,3698.156,3393.867,4002.446,3664.170,3378.494,3949.845,4052.185,3678.129,
 4426.240,4583.859,4082.118,5085.599,4544.788,4058.775,5030.800,4514.398,4040.244,4988.552,4370.231,3966.160,4774.301,
@@ -928,7 +931,7 @@ res.pwm.1<-matrix(c(3693.689,3391.852,3995.527,3698.156,3393.867,4002.446,3664.1
 
 
 ###################################################
-### code chunk number 77: npbrvignette.rnw:1737-1740 (eval = FALSE)
+### code chunk number 77: npbrvignette.rnw:1740-1743 (eval = FALSE)
 ###################################################
 ## rho_pwm <- rho_pwm(post$xinput, post$yprod, x.post, a = 2,
 ##  lrho = 1, urho = Inf)
@@ -936,7 +939,7 @@ res.pwm.1<-matrix(c(3693.689,3391.852,3995.527,3698.156,3393.867,4002.446,3664.1
 
 
 ###################################################
-### code chunk number 78: npbrvignette.rnw:1742-1756
+### code chunk number 78: npbrvignette.rnw:1745-1759
 ###################################################
 rho_pwm<-c(1.023594,1.024185,1.039690,1.052159,1.024773,1.039298,1.927103,
 1.837867,1.677647,1.550235,1.454431,1.379524,1.310404,1.260026,1.234148,
@@ -955,7 +958,7 @@ rho_pwm_trim<-mean(rho_pwm, trim=0.05)
 
 
 ###################################################
-### code chunk number 79: npbrvignette.rnw:1759-1767 (eval = FALSE)
+### code chunk number 79: npbrvignette.rnw:1762-1770 (eval = FALSE)
 ###################################################
 ## best_cm.2 <- mopt_pwm(post$xinput, post$yprod, x.post,
 ##  a = 2, rho = rho_pwm)
@@ -968,7 +971,7 @@ rho_pwm_trim<-mean(rho_pwm, trim=0.05)
 
 
 ###################################################
-### code chunk number 80: npbrvignette.rnw:1769-1837
+### code chunk number 80: npbrvignette.rnw:1772-1840
 ###################################################
 res.pwm.2<-matrix(c(3423.634,3133.666,3713.601,3420.217,3127.762,3712.672,
 3403.614,3117.938,3689.290,3709.516,3335.461,4083.571,4093.768,3592.028,4595.509,
@@ -1041,19 +1044,19 @@ res.pwm.3<-matrix(c(3646.226,3344.389,3948.064,3648.807,3344.517,3953.097,
 
 
 ###################################################
-### code chunk number 81: npbrvignette.rnw:1840-1855 (eval = FALSE)
+### code chunk number 81: npbrvignette.rnw:1843-1858 (eval = FALSE)
 ###################################################
-## plot(yprod ~ xinput, data = post, xlab = "Quantity of labor",
+## plot(yprod ~ xinput, data = my_samp, xlab = "Quantity of labor",
 ##  ylab = "Volume of delivered mail")
 ## lines(x.post, res.pwm.1[,1], lty = 1, col = "cyan")
 ## lines(x.post, res.pwm.1[,2], lty = 3, col = "magenta")
 ## lines(x.post, res.pwm.1[,3], lty = 3, col = "magenta")
-## plot(yprod ~ xinput, data = post, xlab = "Quantity of labor",
+## plot(yprod ~ xinput, data = my_samp, xlab = "Quantity of labor",
 ##  ylab = "Volume of delivered mail")
 ## lines(x.post, res.pwm.2[,1], lty = 1, col = "cyan")
 ## lines(x.post, res.pwm.2[,2], lty = 3, col = "magenta")
 ## lines(x.post, res.pwm.2[,3], lty = 3, col = "magenta")
-## plot(yprod ~ xinput, data = post, xlab = "Quantity of labor",
+## plot(yprod ~ xinput, data = my_samp, xlab = "Quantity of labor",
 ##  ylab = "Volume of delivered mail")
 ## lines(x.post, res.pwm.3[,1], lty = 1, col = "cyan")
 ## lines(x.post, res.pwm.3[,2], lty = 3, col = "magenta")
@@ -1061,23 +1064,23 @@ res.pwm.3<-matrix(c(3646.226,3344.389,3948.064,3648.807,3344.517,3953.097,
 
 
 ###################################################
-### code chunk number 82: npbrvignette.rnw:1859-1879
+### code chunk number 82: npbrvignette.rnw:1862-1882
 ###################################################
 .PngNo <- .PngNo + 1; name.file <- paste("Figures/Fig-bitmap-", .PngNo, ".pdf", sep="")
-pdf(file=name.file, width = 18, height = 7, pointsize = 14, bg = "white")
+pdf(file=name.file, width = 9, height = 3.5, bg = "white")
 op = par(mfrow = c(1, 3), mar = c(4.5, 4.5, 2.1, 2.1), mgp = c(2.9, 1.1, 0),
  oma = c(0, 0, 0, 0), cex.lab = 2.3, cex.axis = 2.3)
-plot(yprod ~ xinput, data = post, col = "grey", xlab = "Quantity of labor", 
+plot(yprod ~ xinput, data = my_samp, col = "grey", xlab = "Quantity of labor", 
  ylab = "Volume of delivered mail")
 lines(x.post, res.pwm.1[,1], lty = 1, lwd = 2, col = "cyan")
 lines(x.post, res.pwm.1[,2], lty = 3, lwd = 4, col = "magenta")
 lines(x.post, res.pwm.1[,3], lty = 3, lwd = 4, col = "magenta")
-plot(yprod~xinput, data = post, col = "grey", xlab = "Quantity of labor", 
+plot(yprod~xinput, data = my_samp, col = "grey", xlab = "Quantity of labor", 
  ylab = "Volume of delivered mail")
 lines(x.post, res.pwm.2[,1], lty = 1, lwd = 2, col = "cyan")
 lines(x.post, res.pwm.2[,2], lty = 3, lwd = 4, col = "magenta")
 lines(x.post, res.pwm.2[,3], lty = 3, lwd = 4, col = "magenta")
-plot(yprod~xinput, data = post, xlab = "Quantity of labor", col = "grey",
+plot(yprod~xinput, data = my_samp, xlab = "Quantity of labor", col = "grey",
  ylab = "Volume of delivered mail")
 lines(x.post, res.pwm.3[,1], lty = 1, lwd = 2, col = "cyan")
 lines(x.post, res.pwm.3[,2], lty = 3, lwd = 4, col = "magenta")
@@ -1088,7 +1091,7 @@ cat("\\includegraphics[width=0.9\\textwidth]{", name.file, "}\n\n", sep="")
 
 
 ###################################################
-### code chunk number 83: npbrvignette.rnw:2106-2213 (eval = FALSE)
+### code chunk number 83: npbrvignette.rnw:2109-2216 (eval = FALSE)
 ###################################################
 ## f<-function(core)
 ## {

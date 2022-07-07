@@ -35,7 +35,7 @@ of Gijbels and Peng (2000), Daouia et al. (2010) and Daouia et al. (2012).
 The various functions in the \pkg{npbr} package are summarized in the table below.
 We are not aware of any other existing set of statistical routines more adapted to data envelope fitting and robust frontier estimation.  
 Only the classical nonsmooth FDH and DEA methods can be found in some available packages dedicated to the economic literature on measurements of  the production performance of enterprises, such as the programs 
-\pkg{Benchmarking} by  Bogetoft and Otto (2011) and  \pkg{FEAR} by  Wilson (2008). Other contributions to the econometric literature on frontier analysis by Parmeter and Racine (2013) can be found at \url{http://socserv.mcmaster.ca/racinej/Gallery/Home.html}.
+\pkg{Benchmarking} by  Bogetoft and Otto (2011) and  \pkg{FEAR} by  Wilson (2008). Other contributions to the econometric literature on frontier analysis by Parmeter and Racine (2013) can be found at \url{https://socialsciences.mcmaster.ca/racinej/Gallery/Home.html}.
 The package \pkg{npbr} is actually the first free specialized software for the statistical literature on nonparametric frontier analysis.  The routines included in \pkg{npbr} are  user 
 friendly and highly flexible  in terms of estimation specifications.  They allow the user to locate the boundary from data 
 by making use of both empirical and smooth fits as well as (un)constrained  estimates under single and multiple shape constraints.    

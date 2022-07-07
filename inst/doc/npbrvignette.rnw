@@ -79,12 +79,12 @@ options(prompt = "R> ", continue = "+  ", width = 70, useFancyQuotes = FALSE)
 
 <<label=bfig2,echo=FALSE,eval=FALSE>>=
 .PngNo <- .PngNo + 1; name.file <- paste("Figures/Fig-bitmap-", .PngNo, ".pdf", sep="")
-pdf(file=name.file, width = 14, height = 7, pointsize = 14, bg = "white")
+pdf(file=name.file, width = 7, height = 3.5, bg = "white")
 @
 
 <<label=bfig4,echo=FALSE,eval=FALSE>>=
 .PngNo <- .PngNo + 1; name.file <- paste("Figures/Fig-bitmap-", .PngNo, ".pdf", sep="")
-pdf(file=name.file, width = 18, height = 7, pointsize = 14, bg = "white")
+pdf(file=name.file, width = 9, height = 3.5, bg = "white")
 @
 
 <<label=bfig5,echo=FALSE,eval=FALSE>>=
@@ -382,7 +382,7 @@ par(op)
 @
 \end{center}
 \caption{From left to right and from top to bottom, the scatterplots of the yearly best men's outdoor 1500-metre run times in seconds, the 254 nuclear reactors' data,
-the 37 European Air Controllers,  the 4000 French post offices and the 123 American electric utility companies.}\label{datasets}
+the 37 European Air Controllers,  the 4000 European post offices and the 123 American electric utility companies.}\label{datasets}
 \end{figure}
 
 
@@ -1409,17 +1409,19 @@ res.momt.3 = dfs_momt(post$xinput, post$yprod, x.post,
 @
 The following code can be used to construct the resulting moment frontier plots graphed in Figure~\ref{fig-dfs}.
 <<echo=TRUE,eval=FALSE>>=
-plot(yprod ~ xinput, data = post, xlab = "Quantity of labor",
+my_samp <- post[sample(1:nrow(post), 1000), ]
+plot(yprod ~ xinput, data = my_samp, 
+     xlab = "Quantity of labor",
  ylab = "Volume of delivered mail")
 lines(x.post, res.momt.1[,1], lty = 1, col = "cyan")
 lines(x.post, res.momt.1[,2], lty = 3, col = "magenta")
 lines(x.post, res.momt.1[,3], lty = 3, col = "magenta")
-plot(yprod ~ xinput, data = post, xlab = "Quantity of labor",
+plot(yprod ~ xinput, data = my_samp, xlab = "Quantity of labor",
  ylab = "Volume of delivered mail")
 lines(x.post, res.momt.2[,1], lty = 1, col = "cyan")
 lines(x.post, res.momt.2[,2], lty = 3, col = "magenta")
 lines(x.post, res.momt.2[,3], lty = 3, col = "magenta")
-plot(yprod ~ xinput, data = post, xlab = "Quantity of labor",
+plot(yprod ~ xinput, data = my_samp, xlab = "Quantity of labor",
  ylab = "Volume of delivered mail")
 lines(x.post, res.momt.3[,1], lty = 1, col = "cyan")
 lines(x.post, res.momt.3[,2], lty = 3, col = "magenta")
@@ -1429,19 +1431,20 @@ lines(x.post, res.momt.3[,3], lty = 3, col = "magenta")
 \begin{center}
 <<results=tex,echo=FALSE>>=
 <<bfig4>>
+my_samp <- post[sample(1:nrow(post), 1000), ]
 op = par(mfrow = c(1, 3), mar = c(4.5, 4.5, 2.1, 2.1), mgp = c(2.9, 1.1, 0),
  oma = c(0, 0, 0, 0), cex.lab = 2.3, cex.axis = 2.3)
-plot(yprod ~ xinput, data = post, col = "grey", xlab = "Quantity of labor",
+plot(yprod ~ xinput, data = my_samp, col = "grey", xlab = "Quantity of labor",
   ylab = "Volume of delivered mail")
 lines(x.post, res.momt.1[,1], lty = 1, lwd = 2, col = "cyan")
 lines(x.post, res.momt.1[,2], lty = 3, lwd = 4, col = "magenta")
 lines(x.post, res.momt.1[,3], lty = 3, lwd = 4, col = "magenta")
-plot(yprod ~ xinput, data = post,  col = "grey", xlab = "Quantity of labor", 
+plot(yprod ~ xinput, data = my_samp,  col = "grey", xlab = "Quantity of labor", 
  ylab = "Volume of delivered mail")
 lines(x.post, res.momt.2[,1], lty = 1, lwd = 2, col = "cyan")
 lines(x.post, res.momt.2[,2], lty = 3, lwd = 4, col = "magenta")
 lines(x.post, res.momt.2[,3], lty = 3, lwd = 4, col = "magenta")
-plot(yprod ~ xinput, data = post, col = "grey", xlab = "Quantity of labor",
+plot(yprod ~ xinput, data = my_samp, col = "grey", xlab = "Quantity of labor",
  ylab = "Volume of delivered mail")
 lines(x.post, res.momt.3[,1], lty = 1, lwd = 2, col = "cyan")
 lines(x.post, res.momt.3[,2], lty = 3, lwd = 4, col = "magenta")
@@ -1450,7 +1453,7 @@ par(op)
 <<zfig2>>
 @
 \end{center}
-\caption{Resulting moment estimator $\tilde\varphi_{momt}$ and $95\%$ confidence bands of $\varphi$ for the 4000 French post offices. From left to right, we have the case $\rho_x=2$, plugging $\tilde{\rho}_x$
+\caption{Resulting moment estimator $\tilde\varphi_{momt}$ and $95\%$ confidence bands of $\varphi$ for the 4000 European post offices. From left to right, we have the case $\rho_x=2$, plugging $\tilde{\rho}_x$
 and plugging the mean of $\tilde{\rho}_x$.\label{fig-dfs}}
 \end{figure}
 
@@ -1539,17 +1542,17 @@ res.pick.3 <- dfs_pick(post$xinput, post$yprod, x.post,
 The obtained pickands frontiers are graphed in Figure~\ref{fig-pickands}.
 The following code will generate Figure~\ref{fig-pickands}.
 <<echo=TRUE,eval=FALSE>>=
-plot(yprod ~ xinput, data = post, xlab = "Quantity of labor",
+plot(yprod ~ xinput, data = my_samp, xlab = "Quantity of labor",
  ylab = "Volume of delivered mail")
 lines(x.post, res.pick.1[,1], lty = 1, col = "cyan")
 lines(x.post, res.pick.1[,2], lty = 3, col = "magenta")
 lines(x.post, res.pick.1[,3], lty = 3, col = "magenta")
-plot(yprod ~ xinput, data = post, xlab = "Quantity of labor",
+plot(yprod ~ xinput, data = my_samp, xlab = "Quantity of labor",
  ylab = "Volume of delivered mail")
 lines(x.post, res.pick.2[,1], lty = 1, col = "cyan")
 lines(x.post, res.pick.2[,2], lty = 3, col = "magenta")
 lines(x.post, res.pick.2[,3], lty = 3, col = "magenta")
-plot(yprod ~ xinput, data = post, xlab = "Quantity of labor",
+plot(yprod ~ xinput, data = my_samp, xlab = "Quantity of labor",
  ylab = "Volume of delivered mail")
 lines(x.post, res.pick.3[,1], lty = 1, col = "cyan")
 lines(x.post, res.pick.3[,2], lty = 3, col = "magenta")
@@ -1561,17 +1564,17 @@ lines(x.post, res.pick.3[,3], lty = 3, col = "magenta")
 <<bfig4>>
 op = par(mfrow = c(1, 3), mar = c(4.5, 4.5, 2.1, 2.1), mgp = c(2.9, 1.1, 0),
  oma = c(0, 0, 0, 0), cex.lab = 2.3, cex.axis = 2.3)
-plot(yprod ~ xinput, data = post, col = "grey", xlab = "Quantity of labor", 
+plot(yprod ~ xinput, data = my_samp, col = "grey", xlab = "Quantity of labor", 
  ylab = "Volume of delivered mail")
 lines(x.post, res.pick.1[,1], lty = 1, lwd = 2, col = "cyan")
 lines(x.post, res.pick.1[,2], lty = 3, lwd = 4, col = "magenta")
 lines(x.post, res.pick.1[,3], lty = 3, lwd = 4, col = "magenta")
-plot(yprod~xinput, data = post, col = "grey", xlab = "Quantity of labor", 
+plot(yprod~xinput, data = my_samp, col = "grey", xlab = "Quantity of labor", 
  ylab = "Volume of delivered mail")
 lines(x.post, res.pick.2[,1], lty = 1, lwd = 2, col = "cyan")
 lines(x.post, res.pick.2[,2], lty = 3, lwd = 4, col = "magenta")
 lines(x.post, res.pick.2[,3], lty = 3, lwd = 4, col = "magenta")
-plot(yprod ~ xinput, data = post, col = "grey", xlab = "Quantity of labor", 
+plot(yprod ~ xinput, data = my_samp, col = "grey", xlab = "Quantity of labor", 
  ylab = "Volume of delivered mail")
 lines(x.post, res.pick.3[,1], lty = 1, lwd = 2, col = "cyan")
 lines(x.post, res.pick.3[,2], lty = 3, lwd = 4, col = "magenta")
@@ -1580,7 +1583,7 @@ par(op)
 <<zfig2>>
 @
 \end{center}
-\caption{Resulting Pickands estimator $\hat\varphi_{pick}$ and $95\%$ confidence interval of $\varphi$ for the 4000 French post offices. From left to right, we have the case $\rho_x=2$,
+\caption{Resulting Pickands estimator $\hat\varphi_{pick}$ and $95\%$ confidence interval of $\varphi$ for the 4000 European post offices. From left to right, we have the case $\rho_x=2$,
 plugging  $\hat{\rho}_x$, and plugging the mean of $\hat{\rho}_x$. \label{fig-pickands}}
 \end{figure}
 \vspace{3mm}
@@ -1838,17 +1841,17 @@ res.pwm.3<-matrix(c(3646.226,3344.389,3948.064,3648.807,3344.517,3953.097,
 @
 The following code can be used to construct the resulting PWM frontier plots graphed in Figure~\ref{fig-pwm}.
 <<echo=TRUE,eval=FALSE>>=
-plot(yprod ~ xinput, data = post, xlab = "Quantity of labor",
+plot(yprod ~ xinput, data = my_samp, xlab = "Quantity of labor",
  ylab = "Volume of delivered mail")
 lines(x.post, res.pwm.1[,1], lty = 1, col = "cyan")
 lines(x.post, res.pwm.1[,2], lty = 3, col = "magenta")
 lines(x.post, res.pwm.1[,3], lty = 3, col = "magenta")
-plot(yprod ~ xinput, data = post, xlab = "Quantity of labor",
+plot(yprod ~ xinput, data = my_samp, xlab = "Quantity of labor",
  ylab = "Volume of delivered mail")
 lines(x.post, res.pwm.2[,1], lty = 1, col = "cyan")
 lines(x.post, res.pwm.2[,2], lty = 3, col = "magenta")
 lines(x.post, res.pwm.2[,3], lty = 3, col = "magenta")
-plot(yprod ~ xinput, data = post, xlab = "Quantity of labor",
+plot(yprod ~ xinput, data = my_samp, xlab = "Quantity of labor",
  ylab = "Volume of delivered mail")
 lines(x.post, res.pwm.3[,1], lty = 1, col = "cyan")
 lines(x.post, res.pwm.3[,2], lty = 3, col = "magenta")
@@ -1860,17 +1863,17 @@ lines(x.post, res.pwm.3[,3], lty = 3, col = "magenta")
 <<bfig4>>
 op = par(mfrow = c(1, 3), mar = c(4.5, 4.5, 2.1, 2.1), mgp = c(2.9, 1.1, 0),
  oma = c(0, 0, 0, 0), cex.lab = 2.3, cex.axis = 2.3)
-plot(yprod ~ xinput, data = post, col = "grey", xlab = "Quantity of labor", 
+plot(yprod ~ xinput, data = my_samp, col = "grey", xlab = "Quantity of labor", 
  ylab = "Volume of delivered mail")
 lines(x.post, res.pwm.1[,1], lty = 1, lwd = 2, col = "cyan")
 lines(x.post, res.pwm.1[,2], lty = 3, lwd = 4, col = "magenta")
 lines(x.post, res.pwm.1[,3], lty = 3, lwd = 4, col = "magenta")
-plot(yprod~xinput, data = post, col = "grey", xlab = "Quantity of labor", 
+plot(yprod~xinput, data = my_samp, col = "grey", xlab = "Quantity of labor", 
  ylab = "Volume of delivered mail")
 lines(x.post, res.pwm.2[,1], lty = 1, lwd = 2, col = "cyan")
 lines(x.post, res.pwm.2[,2], lty = 3, lwd = 4, col = "magenta")
 lines(x.post, res.pwm.2[,3], lty = 3, lwd = 4, col = "magenta")
-plot(yprod~xinput, data = post, xlab = "Quantity of labor", col = "grey",
+plot(yprod~xinput, data = my_samp, xlab = "Quantity of labor", col = "grey",
  ylab = "Volume of delivered mail")
 lines(x.post, res.pwm.3[,1], lty = 1, lwd = 2, col = "cyan")
 lines(x.post, res.pwm.3[,2], lty = 3, lwd = 4, col = "magenta")
@@ -1879,7 +1882,7 @@ par(op)
 <<zfig2>>
 @
 \end{center}
-\caption{Resulting regularized PWM estimator $\tilde\varphi_{pwm}$ and $95\%$ confidence interval of $\varphi$ for the 4000 French post offices. From left to right, we have the case $\rho_x=2$, plugging $\bar{\rho}_x$ and
+\caption{Resulting regularized PWM estimator $\tilde\varphi_{pwm}$ and $95\%$ confidence interval of $\varphi$ for the 4000 European post offices. From left to right, we have the case $\rho_x=2$, plugging $\bar{\rho}_x$ and
 plugging the mean of $\bar{\rho}_x$.\label{fig-pwm}}
 \end{figure}
 \vspace{3mm}
